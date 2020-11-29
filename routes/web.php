@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/pizzas', '\App\Http\Controllers\PizzaController@index');
-
+Route::get('/pizzas/create', '\App\Http\Controllers\PizzaController@create');
 Route::get('/pizzas/{id}', '\App\Http\Controllers\PizzaController@show');
+
    
