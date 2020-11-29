@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,22 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/pizzas', function () {
-    $pizzas = [
-        ['type' => 'hawaian', 'base' => 'cheesy crust'],
-        ['type' => 'volcano', 'base' => 'garlic crust'],
-        ['type' => 'veg supreme', 'base' => 'thin & crispy']
+Route::get('/pizzas', '\App\Http\Controllers\PizzaController@index');
 
-    ];
-
-    
-    return view('pizzas', [
-        'pizzas' => $pizzas,
-        'name' => request('name')
-        ] );
-});
-
-Route::get('/pizzas/{id}', function ($id) {
-    return view('details', ['id' => $id]);
-});
+Route::get('/pizzas/{id}', '\App\Http\Controllers\PizzaController@show');
    
